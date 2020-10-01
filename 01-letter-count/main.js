@@ -18,5 +18,36 @@
        this!
 
 */
+let searchButton = document.querySelector("#button");
+
+searchButton.addEventListener("click", function () {
+  let wordSearch = document.querySelector("#word").value.trim().toLowerCase();
+  let letterSearch = document
+    .querySelector("#letter")
+    .value.trim()
+    .toLowerCase();
+  let display = document.querySelector("#display");
+  let count = 0;
+  let num = 0;
+  while (count < wordSearch.length) {
+    if (wordSearch[count].includes(letterSearch)) {
+      num += 1;
+    }
+    count += 1;
+  }
+  if (num > 0) {
+    display.innerHTML =
+      "The letter " +
+      "'" +
+      letterSearch +
+      "'" +
+      " exists " +
+      num +
+      " time in this word!";
+  } else {
+    display.innerHTML =
+      "Nope, " + "'" + letterSearch + "'" + " doesn't exist in this word!";
+  }
+});
 
 // YOUR CODE HERE
